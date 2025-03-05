@@ -1,0 +1,48 @@
+/* Set the background image */
+body {
+  background: url('https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/321086650/original/03f1db056523280b594d35b2c3a478bf7286fdc6/translate-from-any-language-to-the-language-you-need.png') no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Style the login container */
+.login-container {
+  width: 300px;
+  padding: 20px;
+  background: rgba(241, 240, 240, 0.9); /* Slightly transparent */
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  backdrop-filter: blur(5px); /* Slight blur effect for a modern look */
+}
+
+.login-container h2 {
+  margin-bottom: 20px;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login-container button {
+  width: 100%;
+  padding: 10px;
+  background: #202922;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-container button:hover {
+  background: #303a33;
+}

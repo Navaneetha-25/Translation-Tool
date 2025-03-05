@@ -1,0 +1,387 @@
+/*App.cs*/
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:sans-serif;
+}
+body{
+    background-image: url('c:\Users\Navaneetha C\OneDrive\Hình ảnh\Saved Pictures\translate-from-any-language-to-the-language-you-need.png') no-repeat center center fixed;
+    background-size: cover;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    padding: 0 10px;
+    min-height:100vh;
+}
+.container{
+    min-width:700px;
+    width:100%;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.89);
+    border-radius:50px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.2);
+    backdrop-filter: blur(5px);
+}
+body.dark-mode {
+    background-image: url('c:\Users\Navaneetha C\OneDrive\Hình ảnh\Saved Pictures\translate-from-any-language-to-the-language-you-need.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+}
+
+body.dark-mode .container {
+    background: rgba(43, 43, 43, 0.9); /* Dark mode with transparency */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+.wrapper{
+    border-radius: 20px;
+    border:1px solid #ccc;
+}
+.wrapper .text-input{
+    display: flex;
+    border-bottom: 1px solid #ccc;
+}
+.text-input .to-text{
+border-radius: 20px;
+border-left:1px solid #ccc;
+}
+.text-input textarea{
+    height:250px;
+    width:100%;
+    outline:none;
+    resize:none;
+    background:none;
+    font-size:18px;
+    padding:10px 15px;
+    border-radius:20px;
+}
+.text-input textarea::placeholder{
+    color:#b7b6b6;
+}
+.controls,
+li,
+.icons,
+.icons i{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+}
+.controls{
+    list-style:none;
+    padding: 12px 15px;
+}
+.controls .row .icons{
+    width:38%;
+}
+.controls .row .icons i{
+    width:50px;
+    color:#adadad;
+    font-size:14px;
+    cursor:pointer;
+    transition:transform 0.2s ease;
+    justify-content:center;
+}
+.controls .row.from .icons{
+    padding-right: 15px;
+    border-right:1px solid #ccc ;
+}
+.controls .row.to .icons{
+    padding-left: 15px;
+    border-left:1px solid #ccc;
+}
+.controls .row select{
+    color:#6e6868;
+    border: none;
+    outline:none;
+    font-size:18px;
+    background:none;
+    padding-left:5px;
+}
+.text-input textarea::-webkit-scrollbar{
+    width:4px;
+}
+.controls .row select::-webkit-scrollbar{
+    width:8px;
+}
+.text-input textarea::-webkit-scrollbar-track,
+.controls .row select::-webkit-scrollbar-track{
+    background:#ded5d5;
+}
+.text-input textarea::-webkit-scrollbar-thumb{
+    background:#ddd;
+    border-radius:500px;
+}
+.controls .row select::-webkit-scrollbar-thumb{
+    background:#999;
+    border-radius: 100px;
+    border-right:2px solid #635555;
+}
+.controls .exchange{
+    color:#adadad;
+    cursor:pointer;
+    font-size:16px;
+    transition:transform 0.2s ease;
+}
+.controls i:active{
+    transform:scale(0.9);
+}
+.container button{
+    width:100%;
+    padding:14px;
+    outline:none;
+    border:none;
+    color:#f2eeee;
+    cursor:pointer;
+    margin-top:20px;
+    font-size:17px;
+    border-radius:250px;
+    background:#202922;
+}
+.above-container{
+    display:flex;
+    align-items: center;
+    justify-content:center;
+}
+.above-container-content{
+    font-size:xx-large;
+    font-weight:100;
+    display:inline;
+    margin-right:1%;
+    margin-bottom:1%;
+    color:#000000;
+}
+.above-container img{
+    width:40px;
+}
+.sidebar-container {
+    position:fixed;
+    left:0;
+    top:0;
+    height:100vh;
+    width:260px;
+    background:#1e1e2d;
+    color:white;
+    display:flex;
+    flex-direction: column;
+    padding:20px;
+    box-shadow:2px 0px 10px rgba(0,0,0,0.2);
+    transform:translateX(-100%);
+    transition:transform 0.3s ease-in-out;
+}
+.sidebar-container.open{
+    transform: translateX(0);
+}
+.sidebar-toggle{
+    position:fixed;
+    left:10px;
+    top:10px;
+    background:#1e1e2d;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    cursor:pointer;
+    font-size:16px;
+    border-radius:20px;
+    z-index:1000;
+}
+.sidebar-container h2{
+    text-align:center;
+    margin-bottom:20px;
+    font-size:22px;
+}
+.sidebar .history{
+    flex-grow:1;
+    overflow-y:auto; 
+}
+.sidebar .history-item{
+    background:#2b2b3a;
+    padding:10px;
+    border-radius:6px;
+    margin-bottom:10px;
+    cursor:pointer;
+    transition:0.3s;
+    display:flex;
+    justify-content: space-between;
+}
+.sidebar .history-item:hover{
+    background: #3c3c4e;
+}
+.container{
+    margin-left:20px;
+    transition:margin-left 0.3s ease-in-out;
+}
+.container.shift{
+    margin-left:280px;
+}
+@media(max-width:768px){
+    .sidebar-container{
+        width:220px; 
+    }
+    .container.shift{
+        margin-left:230px;
+    }
+}
+/* Default Light Mode */
+body:not(.dark-mode){
+    /*background:#4e4545;*/
+    color:#333;
+    background: url('c:\Users\Navaneetha C\OneDrive\Hình ảnh\Saved Pictures\translate-from-any-language-to-the-language-you-need.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    transition: background 0.3s, color 0.3s;
+}
+/* Dark Mode */
+body.dark-mode {
+    background: #1e1e1e;
+    color: #fff;
+}
+
+body.dark-mode .container {
+    background: #2b2b2b;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .text-input textarea {
+    background: #3a3a3a;
+    color: #fff;
+}
+
+body.dark-mode .controls select {
+    background: #3a3a3a;
+    color: #fff;
+}
+
+body.dark-mode .sidebar-container {
+    background: #242424;
+}
+
+body.dark-mode .sidebar-container .history-item {
+    background: #333;
+    color: #fff;
+}
+
+body.dark-mode .above-container-content{
+    color:#ffffff;
+}
+/* Toggle Button */
+.theme-toggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 10px 15px;
+    background: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: background 0.3s;
+}
+
+.theme-toggle:hover {
+    background: #555;
+}
+
+/* Sidebar Toggle */
+.sidebar-toggle {
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    background: #1e1e2d;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 20px;
+    z-index: 1000;
+}
+
+.sidebar-toggle:hover {
+    background: #333;
+}
+.logout-button {
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 20px;
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.logout-button:hover {
+    background: #ff1a1a;
+}
+/* Custom File Upload Styling */
+.file-upload {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.custom-file-label {
+    display: inline-block;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background: #202922;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-align: center;
+}
+
+.custom-file-label:hover {
+    background: #333;
+}
+
+/* Dark Mode Styling */
+body.dark-mode .custom-file-label {
+    background: #3a3a3a;
+    color: white;
+}
+
+body.dark-mode .custom-file-label:hover {
+    background: #555;
+}
+
+/* Display File Name */
+.file-upload span {
+    font-size: 14px;
+    color: #333;
+    background: #ddd;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+body.dark-mode .file-upload span {
+    color: white;
+    background: #444;
+}
+
+/* Cancel Button */
+.cancel-upload {
+    display: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.cancel-upload:hover {
+    background: darkred;
+}
+
+.show {
+    display: inline-block;
+}
